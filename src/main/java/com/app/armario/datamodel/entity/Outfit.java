@@ -37,7 +37,6 @@ public class Outfit {
     @Column(name = "imagen_url", nullable = true)
     private String imagen_url;
 
-    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "outfits")
     private Set<Prenda> prendas;
 

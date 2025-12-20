@@ -25,8 +25,8 @@ public class Color {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "color", nullable = false)
-    private String color;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "colores")

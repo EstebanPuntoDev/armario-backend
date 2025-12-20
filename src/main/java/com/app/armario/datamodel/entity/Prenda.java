@@ -2,6 +2,8 @@ package com.app.armario.datamodel.entity;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,19 +37,20 @@ public class Prenda {
     @Column(name = "imagen_url", nullable = true)
     private String imagen_url;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="REL_PRENDA_TIPO",
         joinColumns = @JoinColumn(name = "PRENDA_ID", nullable = false),
 		inverseJoinColumns = @JoinColumn(name = "TIPO_ID", nullable = false))
     private Set<Tipo> tipos;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="REL_PRENDA_OUTFIT",
         joinColumns = @JoinColumn(name = "PRENDA_ID", nullable = false),
 		inverseJoinColumns = @JoinColumn(name = "OUTFIT_ID", nullable = false))
     private Set<Outfit> outfits;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="REL_PRENDA_COLOR",
         joinColumns = @JoinColumn(name = "PRENDA_ID", nullable = false),
 		inverseJoinColumns = @JoinColumn(name = "COLOR_ID", nullable = false))

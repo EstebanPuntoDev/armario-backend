@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class ColorDTO {
     
-    private String color;
+    private String nombre;
 
     private Set<Prenda> prendas;
 }
